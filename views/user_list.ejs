@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title><%= title %></title>
+<link rel="stylesheet" href="/stylesheets/style.css" />
+<style>
+table {
+font-family: arial, sans-serif;
+border-collapse: collapse;
+width: 100%;
+}
+
+td,
+th {
+border: 1px solid #dddddd;
+text-align: left;
+padding: 8px;
+}
+
+tr:nth-child(even) {
+background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+<h1><%= title %></h1>
+<p>Welcome to <%= title %></p>
+<form action="/users/create_user" method="POST">
+<label>First Name: </label>
+<input name="first_name" />
+<br />
+<label>Last Name: </label>
+<input name="last_name" />
+<br />
+<label>Email: </label>
+<input name="email" />
+<br />
+<label>Phone Number: </label>
+<input name="phone_number" />
+<br />
+<input type="submit" value="Submit" />
+</form>
+<p>Welcome to <%= title %></p>
+<table>
+<tr>
+<th>First Name</th>
+<th>Last Name</th>
+<th>Email</th>
+<th>Phone Number</th>
+<th>Actions</th>
+</tr>
+<% for(let i = 0; i < entities.length; i++){ %>
+<tr>
+<td><%= entities[i].FirstName %></td>
+<td><%= entities[i].LastName %></td>
+<td><%= entities[i].Email %></td>
+<td><%= entities[i].PhoneNumber %></td>
+<td>
+<a href="/users/view/<%= entities[i].id %>">View</a>
+<a href="/users/edit/<%= entities[i].id %>">Update</a>
+<a href="/users/delete/<%= entities[i].id %>">Delete</a>
+</td>
+</tr>
+<% } %>
+</table>
+</body>
+</html>
