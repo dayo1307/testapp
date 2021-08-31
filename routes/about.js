@@ -3,7 +3,8 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Blackforce Training', message: 'This is a sample CRUD by Dayo'});
+  res.render('about', { title: 'About'});
 });
+
 
 module.exports = router;
